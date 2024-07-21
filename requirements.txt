@@ -1,0 +1,9 @@
+# Pinned to the versions current when this analysis was done, late 2024.
+# Python 3.11.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+scikit-learn==1.5.2
+matplotlib==3.9.2
+seaborn==0.13.2
+jupyterlab==4.2.5

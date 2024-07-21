@@ -1,0 +1,52 @@
+{
+  "profit_per_trip": {
+    "pink_mean": 62.65217410961977,
+    "yellow_mean": 160.25998584103016,
+    "difference": 97.60781173141038,
+    "welch_t": 230.99551452746311,
+    "welch_p": 0.0,
+    "mannwhitney_u": 16084098181.0,
+    "mannwhitney_p": 0.0,
+    "cohens_d": 0.6302708587983085,
+    "n_pink": 84711,
+    "n_yellow": 274681
+  },
+  "margin": {
+    "pink_mean_margin": 0.17380832562291507,
+    "yellow_mean_margin": 0.30134544234470556,
+    "difference": 0.1275371167217905,
+    "welch_t": 199.14466870385888,
+    "welch_p": 0.0
+  },
+  "city_anova": {
+    "Pink Cab": {
+      "f": 531.3167193452098,
+      "p": 0.0,
+      "cities": 19
+    },
+    "Yellow Cab": {
+      "f": 8780.983415520906,
+      "p": 0.0,
+      "cities": 19
+    }
+  },
+  "customer_overlap": {
+    "pink_only": 6252,
+    "yellow_only": 13818,
+    "both": 26078,
+    "share_of_pink_customers_also_yellow": 0.8066192390968141,
+    "share_of_yellow_customers_also_pink": 0.6536494886705434
+  },
+  "independence_gender": {
+    "chi2": 107.22063897254299,
+    "p": 3.982674650131372e-25,
+    "dof": 1,
+    "cramers_v": 0.017272491702935946
+  },
+  "independence_payment_mode": {
+    "chi2": 0.3733235887859897,
+    "p": 0.5411981778304723,
+    "dof": 1,
+    "cramers_v": 0.00101919788381794
+  }
+}

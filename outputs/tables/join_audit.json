@@ -1,0 +1,17 @@
+{
+  "trip_rows": "359392",
+  "transaction_rows": "440098",
+  "customer_rows": "49171",
+  "city_rows": "20",
+  "trips_without_transaction": "0",
+  "transactions_without_trip": "80706",
+  "duplicate_trip_ids": "0",
+  "customers_missing_demographics": "0",
+  "cities_in_trips": "19",
+  "cities_in_city_file": "20",
+  "cities_with_no_trips": "['SAN FRANCISCO CA']",
+  "date_min": "2016-01-02 00:00:00",
+  "date_max": "2018-12-31 00:00:00",
+  "loss_making_trips": "24819",
+  "missing_values": "0"
+}
