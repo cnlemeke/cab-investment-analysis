@@ -1,4 +1,4 @@
-# Pinned to the versions current when this analysis was done, late 2024.
+
 # Python 3.11.
 numpy==1.26.4
 pandas==2.2.3
