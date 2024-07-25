@@ -1,12 +1,12 @@
 # Cab market entry: which company should XYZ acquire?
 
-**Analyst:** Chigozie Edwin Nlemeke
+**Analyst:** Chigozie Nlemeke
 **Data:** 359,392 completed trips, January 2016 to December 2018, 19 US cities
 **Question:** XYZ wants to enter the US cab market by buying one of two operators. Which one?
 
 ---
 
-## Recommendation
+## Recommendation 
 
 **Buy Yellow Cab**, and price the deal off 2018 rather than the three-year average.
 
@@ -16,9 +16,9 @@ Three conditions attach to that recommendation, and they are in the risks sectio
 
 ---
 
-## 1. What the data is, and what it is not
+## 1. Data 
 
-Four files were supplied:
+Four separate data were provided for analysis
 
 | File | Rows | What it holds |
 |---|---|---|
@@ -29,7 +29,7 @@ Four files were supplied:
 
 Four things came out of the join check and they shape everything after it.
 
-**80,706 transactions have no trip attached.** The customer IDs resolve and the payment mode is filled in, but `Cab_Data.csv` has no matching record. The brief offers no explanation. The most likely readings are that these belong to operators outside the two being compared, or to cancelled trips. Neither can contribute to a profit comparison, so the analysis uses an inner join on the trip file and drops them deliberately rather than silently.
+**80,706 transactions have no trip attached.** The customer IDs resolve and the payment mode is filled in, but `Cab_Data.csv` has no matching record. The most likely readings are that these belong to operators outside the two being compared, or to cancelled trips. Neither can contribute to a profit comparison, so the analysis uses an inner join on the trip file and drops them deliberately rather than silently.
 
 **San Francisco is in `City.csv` with no trips in the data.** Neither company operates there, so it falls out of every city breakdown and 19 cities remain.
 
@@ -37,7 +37,7 @@ Four things came out of the join check and they shape everything after it.
 
 **Everything else is clean.** No missing values, no duplicate transaction IDs, every customer ID resolves to a demographic record.
 
-One limitation to state up front. The files contain no fleet size, driver count, fixed cost, licensing or capital structure. "Profit" throughout this report means fare charged minus the cost booked against that trip. It is trip contribution, not company profit, and it cannot be turned into a valuation without the cost base.
+**Key thing to note.** Fleet size, driver count, fixed cost, licensing or capital structure were not captured in the datasets. "Profit" throughout this report means fare charged minus the cost booked against that trip. It is trip contribution, not company profit, and it cannot be turned into a valuation without the cost base.
 
 ---
 
@@ -258,7 +258,7 @@ Pink Cab is not a cheaper way to the same outcome. It loses money on one trip in
 
 ---
 
-## 9. What this analysis cannot tell you
+## 9. Limitations
 
 Stated plainly, because the recommendation should be read with these in view.
 
