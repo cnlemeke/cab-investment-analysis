@@ -248,7 +248,7 @@ Yellow Cab wins on every measure except one, and it wins the comparable ones by 
 
 Pink Cab is not a cheaper way to the same outcome. It loses money on one trip in eight, it leads in four small cities, and 80.7% of its customers already ride with Yellow Cab. It is the second choice inside its own customer base.
 
-### Three conditions
+### Three conditions to note
 
 **Price the New York concentration into the deal.** 60.1% of Yellow Cab's profit comes from one city at a margin no other city approaches. Stress-test the valuation against losing a third of New York's contribution rather than averaging the risk away across 19 cities.
 
