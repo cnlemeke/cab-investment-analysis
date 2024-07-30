@@ -1,5 +1,5 @@
-
-# Python 3.11.
+# Pinned to the versions current when this analysis was done, late 2024.
+# Python 3.11. Newer Python will not build numpy 1.26.4.
 numpy==1.26.4
 pandas==2.2.3
 scipy==1.13.1
