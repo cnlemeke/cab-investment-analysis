@@ -283,4 +283,4 @@ pip install -r requirements.txt
 python run_analysis.py
 ```
 
-That regenerates every figure and table quoted above into `outputs/`. The working notebook is `notebooks/cab_investment_analysis.ipynb`.
+That regenerates every figure and table quoted above into `outputs/`. The working notebook is `Code/cab_investment_analysis.ipynb`.
