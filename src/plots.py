@@ -23,7 +23,7 @@ ORDER = ["Pink Cab", "Yellow Cab"]
 
 # Anchored to the project root rather than the current directory, so figures
 # land in the same place whether this is called from run_analysis.py at the
-# root or from a notebook sitting in notebooks/.
+# root or from a notebook sitting in Code/.
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FIG_DIR = PROJECT_ROOT / "outputs" / "figures"
 

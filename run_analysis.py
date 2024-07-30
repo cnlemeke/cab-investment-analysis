@@ -19,7 +19,7 @@ from src import plots
 from src.data import audit_join, build_master
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DATA_DIR = PROJECT_ROOT / "data" / "raw"
+DATA_DIR = PROJECT_ROOT / "data"
 TABLE_DIR = PROJECT_ROOT / "outputs" / "tables"
 FIG_DIR = PROJECT_ROOT / "outputs" / "figures"
 

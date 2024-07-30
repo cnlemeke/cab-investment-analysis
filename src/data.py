@@ -21,7 +21,7 @@ RAW_FILES = {
 }
 
 
-def load_raw(data_dir="data/raw"):
+def load_raw(data_dir="data"):
     """Read the four CSVs as they come, no cleaning yet."""
     data_dir = Path(data_dir)
     return {name: pd.read_csv(data_dir / f) for name, f in RAW_FILES.items()}
@@ -83,7 +83,7 @@ def clean_transactions(transactions):
     return out
 
 
-def build_master(data_dir="data/raw"):
+def build_master(data_dir="data"):
     """One wide table: every completed trip with its customer and city attached.
 
     Transaction_ID has about 80k more rows than Cab_Data. Those extra rows have
@@ -106,7 +106,7 @@ def build_master(data_dir="data/raw"):
     return master
 
 
-def audit_join(data_dir="data/raw"):
+def audit_join(data_dir="data"):
     """Counts worth quoting in the report before anyone trusts the merged table."""
     raw = load_raw(data_dir)
     trips = clean_trips(raw["cab"])
