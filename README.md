@@ -1,16 +1,16 @@
 # Cab investment analysis
 
-Which of two US cab operators should a private investor acquire? This repository works through 359,392 trips from 2016 to 2018 and answers it.
+Which of two US cab operators should a private investor acquire? This data analytics project works through 359,392 trips from 2016 to 2018 to provide detailed analysis and business recommendations
 
-**Short version:** buy Yellow Cab, and price the deal off 2018 rather than the three-year average. The full reasoning is in **[REPORT.md](REPORT.md)**.
+> The details are contained in **[REPORT.md](REPORT.md)**.
 
 ![Market share](outputs/figures/01_market_share.png)
 
-## The question
+## Client Brief
 
 XYZ is a private firm planning to enter the US cab market by acquiring an existing operator. Two candidates: Pink Cab and Yellow Cab. They supplied four files covering three years of trips, customers and city populations, and asked which company to buy.
 
-## What the analysis found
+## Analysis
 
 Yellow Cab runs 76% of the trips and keeps 89% of the profit. That gap is the whole finding, and most of the work goes into testing whether it holds up.
 
@@ -42,11 +42,11 @@ Yellow Cab runs 76% of the trips and keeps 89% of the profit. That gap is the wh
     └── tables/                  CSV and JSON behind every number quoted
 ```
 
-The notebook tells the story. The modules hold the logic, so the notebook stays readable and every number in the report can be regenerated without re-running charts by hand.
+The jupyter notebook tells the story. The modules hold the logic, so the notebook stays readable and every number in the report can be regenerated without re-running charts by hand.
 
 ## Running it
 
-Built and tested on Python 3.11 with the versions pinned in `requirements.txt`.
+Built and tested on Python with the versions pinned in `requirements.txt`.
 
 ```bash
 pip install -r requirements.txt
@@ -62,16 +62,6 @@ jupyter lab notebooks/cab_investment_analysis.ipynb
 ```
 
 It runs from either the project root or `notebooks/`.
-
-## Method notes
-
-Three decisions are worth flagging because they change the answer.
-
-**The merge drops 80,706 rows on purpose.** `Transaction_ID.csv` has more rows than `Cab_Data.csv`, and those extras have no trip attached. They cannot contribute to a profit comparison. `src.data.audit_join()` reports the count rather than letting the merge swallow it.
-
-**The model splits by time, not at random.** Training on 2016 and 2017 and holding out 2018 is harder than a random split and more honest, because 2018 behaves differently from the two years before it. The held-out year exposes a $20.92 per trip over-prediction that a random split would have hidden.
-
-**No leakage into the model.** Profit is fare minus cost, so fare, cost, margin and price per km are all excluded as features. Only what is knowable before the meter runs goes in.
 
 ## Data
 
