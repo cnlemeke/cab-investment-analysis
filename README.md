@@ -1,12 +1,12 @@
 # Cab investment analysis
 
-Which of two US cab operators should a private investor acquire? This data analytics project works through 359,392 trips from 2016 to 2018 to provide detailed analysis and business recommendations
+Which of two US cab operators should a private investor acquire? This project works through 359,392 trips from 2016 to 2018 and answers it.
 
-> The details are contained in **[REPORT.md](REPORT.md)**.
+**Recommendation: acquire Yellow Cab, and price the deal off 2018 rather than the three-year average.** The full reasoning is in [REPORT.md](REPORT.md).
 
 ![Market share](outputs/figures/01_market_share.png)
 
-## Client Brief
+## Client brief
 
 XYZ is a private firm planning to enter the US cab market by acquiring an existing operator. Two candidates: Pink Cab and Yellow Cab. They supplied four files covering three years of trips, customers and city populations, and asked which company to buy.
 
@@ -28,9 +28,10 @@ Yellow Cab runs 76% of the trips and keeps 89% of the profit. That gap is the wh
 ├── README.md                    you are here
 ├── REPORT.md                    the written analysis and recommendation
 ├── run_analysis.py              regenerates every figure and table
-├── requirements.txt
-├── data/raw/                    the four source CSVs
-├── notebooks/
+├── requirements.txt             pinned dependency versions
+├── LICENSE
+├── data/                        the four source CSVs
+├── Code/
 │   └── cab_investment_analysis.ipynb    the working analysis, start to finish
 ├── src/
 │   ├── data.py                  loading, cleaning, joining, join audit
@@ -42,11 +43,11 @@ Yellow Cab runs 76% of the trips and keeps 89% of the profit. That gap is the wh
     └── tables/                  CSV and JSON behind every number quoted
 ```
 
-The jupyter notebook tells the story. The modules hold the logic, so the notebook stays readable and every number in the report can be regenerated without re-running charts by hand.
+The Jupyter notebook tells the story. The modules hold the logic, so the notebook stays readable and every number in the report can be regenerated without re-running charts by hand.
 
 ## Running it
 
-Built and tested on Python with the versions pinned in `requirements.txt`.
+Built and tested on Python 3.11 with the versions pinned in `requirements.txt`. Newer versions of Python will not build numpy 1.26.4, so use 3.11 or adjust the pins.
 
 ```bash
 pip install -r requirements.txt
@@ -58,14 +59,24 @@ Takes two to three minutes, mostly the gradient boosting fit and the permutation
 To work through the notebook instead:
 
 ```bash
-jupyter lab notebooks/cab_investment_analysis.ipynb
+jupyter lab Code/cab_investment_analysis.ipynb
 ```
 
-It runs from either the project root or `notebooks/`.
+The notebook locates the project root on its own, so it runs from anywhere inside the repository.
+
+## Method notes
+
+Three decisions are worth flagging because they change the answer.
+
+**The merge drops 80,706 rows on purpose.** `Transaction_ID.csv` has more rows than `Cab_Data.csv`, and those extras have no trip attached. They cannot contribute to a profit comparison, so `src.data.audit_join()` reports the count rather than letting the merge swallow it.
+
+**The model splits by time, not at random.** Training on 2016 and 2017 and holding out 2018 is harder than a random split and more honest, because 2018 behaves differently from the two years before it. The held-out year exposes a $20.92 per trip overprediction that a random split would have hidden.
+
+**No leakage into the model.** Profit is fare minus cost, so fare, cost, margin and price per km are all excluded as features. Only what is knowable before the meter runs goes in.
 
 ## Data
 
-The four files in `data/raw/` are the G2M cab investment case study dataset: trip records, transaction-to-customer links, customer demographics, and city populations. Column meanings are documented in `src/data.py`.
+The four files in `data/` are the G2M cab investment case study dataset: trip records, transaction-to-customer links, customer demographics, and city populations. Column meanings are documented in `src/data.py`.
 
 The customer attributes look generated rather than observed, which is noted in the report. No conclusion depends on them.
 
